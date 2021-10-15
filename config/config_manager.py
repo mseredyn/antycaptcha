@@ -9,7 +9,7 @@ class ConfigManager(object):
 
     @classmethod
     def load_config(cls):
-        with open(f'{PROJECT_ROOT}/config/config.yml') as f:
+        with open(f'{PROJECT_ROOT}/config/config.yaml') as f:
             cls.config = yaml.load(f, Loader=SafeLoader)
 
     @classmethod

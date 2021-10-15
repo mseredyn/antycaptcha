@@ -13,3 +13,6 @@ class CommonPage(BasePage):
 
     def get_trail_value(self):
         return self.get_text_of_element_by_xpath(self.TRAIL)
+
+    def find_trail_by_value(self, value):
+        return self.find_by_xpath(f'//code[@class="wrap" and text()="{value}"]')
