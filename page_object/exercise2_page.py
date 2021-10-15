@@ -8,6 +8,9 @@ class Exercise2Page(CommonPage):
     def __init__(self, driver):
         super().__init__(driver)
 
+    def clear_t14_input(self):
+        self.find_by_xpath(self.T14_INPUT_AREA).clear()
+
     def fill_t14_input_with_value(self, value):
         self.fill_with_value_by_xpath(self.T14_INPUT_AREA, value)
 
