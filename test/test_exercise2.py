@@ -4,14 +4,13 @@ from page_object.exercise2_page import Exercise2Page
 
 class TestExercise2:
 
-    def test_editbox(self, webdriver_factory):
-        driver = webdriver_factory.get(get_exercise_full_url_by_exercise_number(2))
-        page = Exercise2Page(driver)
+    def test_editbox(self, page):
+        page.goto(get_exercise_full_url_by_exercise_number(2))
+        exercise_2_page = Exercise2Page(page)
 
-        page.clear_t14_input()
-        page.fill_t14_input_with_value("Western perhaps.")
-        page.click_b1_button()
-        page.find_trail_by_value("t14:Western perhaps.b1")
+        exercise_2_page.fill_t14_input_with_value("Western perhaps.")
+        exercise_2_page.click_b1_button()
+        exercise_2_page.assert_trail_by_value("t14:Western perhaps.b1")
 
-        page.click_check_solution_button()
-        page.find_trail_by_value("OK. Good answer")
+        exercise_2_page.click_check_solution_button()
+        exercise_2_page.assert_trail_by_value("OK. Good answer")
